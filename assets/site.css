@@ -6,3 +6,7 @@
 /* Keep the contact action visible alongside the mobile navigation toggle. */
 @media(max-width:760px){.site-header .brand{width:128px}.header-cta{order:2;margin-left:auto;height:40px!important;padding-inline:10px!important;font-size:13px!important;gap:6px}.menu-toggle{order:3;margin-left:10px;flex-shrink:0}.header-cta svg{width:15px;height:15px}}
 @media(max-width:380px){.site-header .brand{width:112px}.header-cta svg{display:none}.menu-toggle{margin-left:8px}}
+
+/* CRC context and official-site action live within the collaboration section. */
+.crc-introduction{min-width:0}.crc-grid .crc-summary{margin:26px 0 28px;font-size:1rem;line-height:1.75}.action-button.crc-website{width:100%;min-height:68px;padding:20px 24px!important;font-size:1rem!important;gap:20px;text-align:left}.crc-website svg{flex-shrink:0}.crc-grid .crc-link-note{margin:12px 0 0;font-size:.875rem;color:var(--copy)}
+@media(max-width:760px){.crc-grid .crc-summary{margin:22px 0 24px}.action-button.crc-website{min-height:64px;padding:18px 20px!important}.crc-introduction+div{border-top:1px solid #ccd4e7;padding-top:28px}}
