@@ -8,7 +8,7 @@
 
 ## 版本说明
 - 六个顶层页面、四个服务详情页和可点击的网站地图。
-- 保留当前设计、首页雕塑位置及背景融合调整、11 个真实作品截图、外部链接及手机导航。
+- 保留当前设计、首页雕塑位置及背景融合调整、10 个真实作品截图、外部链接及手机导航。
 - HTML、CSS、JavaScript 和本地图片/字体，无需 npm、服务器或数据库。
 - Contact 是演示表单：不会发送或保存询问。正式上线需另接表单服务。
 - 这是可公开访问的客户预览，不是密码保护网站。各页保留标题与描述，设为 noindex，避免与正式站争夺搜索结果；noindex 不是访问控制。
@@ -16,3 +16,5 @@
 - 字体授权见 `fonts/OFL.txt`。预览包不含服务器代码、密钥或数据库。
 
 GitHub 官方说明：https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+
+当前导航为 Home、Services、Showcase、AI for Care、About，以及持续显示的 Let’s Talk。AI for Care 保留 collaboration.html 网址。
