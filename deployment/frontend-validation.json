@@ -1,0 +1,15 @@
+{
+  "date": "2026-09-23",
+  "method": "Node VM with simulated DOM and server responses",
+  "passed": true,
+  "checks": [
+    "Unconfigured form cannot send or show success.",
+    "External endpoints remain blocked.",
+    "Invalid input does not submit.",
+    "Configured form hides availability message and handles accepted JSON response.",
+    "HTML fallback cannot produce false success; input is retained.",
+    "Rate limit shows a visitor-facing error without clearing input."
+  ],
+  "live_backend_tested": false,
+  "browser_visual_tested": false
+}

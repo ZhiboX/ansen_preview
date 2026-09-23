@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /deployment/
+
+Sitemap: https://anseninnov.com/sitemap.xml

@@ -1,0 +1,15 @@
+# Include inside the existing anseninnov.com HTTPS server block.
+# Set root to the extracted site directory. Merge, then run nginx -t before reload.
+# Configure HTTP/www redirects in separate host-level server blocks.
+index index.html;
+error_page 404 /404.html;
+location = /404.html { internal; }
+# Handle only explicit /index.html requests, not the internal index resolution for /.
+if ($request_uri ~ "^/index\.html(?:\?|$)") { return 301 https://anseninnov.com/$is_args$args; }
+location = /product-demo-and-proof-of-concept.html { return 301 https://anseninnov.com/ai-powered-tools.html$is_args$args; }
+location = /integration-service.html { return 301 https://anseninnov.com/custom-software-development.html$is_args$args; }
+location = /data-migration-and-security.html { return 301 https://anseninnov.com/custom-software-development.html$is_args$args; }
+location = /next-generation-emerging-technologies.html { return 410; }
+location ^~ /deployment/ { return 404; }
+location = /README.md { return 404; }
+location / { try_files $uri $uri/ =404; }

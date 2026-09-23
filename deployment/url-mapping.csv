@@ -1,0 +1,11 @@
+Old URL,New URL / outcome,Server response,Notes
+https://anseninnov.com/index.html,https://anseninnov.com/,301,Existing path retained; homepage canonical consolidated.
+https://anseninnov.com/custom-software-development.html,https://anseninnov.com/custom-software-development.html,200,Existing path retained; homepage canonical consolidated.
+https://anseninnov.com/contact.html,https://anseninnov.com/contact.html,200,Existing path retained; homepage canonical consolidated.
+https://anseninnov.com/website-design-and-build.html,https://anseninnov.com/website-design-and-build.html,200,Existing path retained; homepage canonical consolidated.
+https://anseninnov.com/project-rescue-repair-and-renovate.html,https://anseninnov.com/project-rescue-repair-and-renovate.html,200,Existing path retained; homepage canonical consolidated.
+https://anseninnov.com/collaboration.html,https://anseninnov.com/collaboration.html,200,"AI for Care replaces the encrypted-database topic; URL retained, old topic relevance is not preserved."
+https://anseninnov.com/product-demo-and-proof-of-concept.html,https://anseninnov.com/ai-powered-tools.html,301,Static meta-refresh fallback included; prefer server redirect. POC destination now focuses on AI.
+https://anseninnov.com/integration-service.html,https://anseninnov.com/custom-software-development.html,301,Relevant service content included at destination; static fallback included.
+https://anseninnov.com/data-migration-and-security.html,https://anseninnov.com/custom-software-development.html,301,Relevant service content included at destination; static fallback included.
+https://anseninnov.com/next-generation-emerging-technologies.html,"Retired, no equivalent replacement",410,Noindex fallback included for hosts without custom status rules; do not redirect to an unrelated page.

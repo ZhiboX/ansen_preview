@@ -1,20 +1,25 @@
-# Ansen · GitHub Pages 客户预览版
+# Ansen Innovation website
 
-## 上传与预览
-1. 解压此 ZIP。在 GitHub 新建独立 Public 仓库，例如 `ansen-preview`，不要修改 Knox 的仓库。
-2. 在新仓库点 **Add file → Upload files**，上传解压后的全部文件和文件夹，然后 **Commit changes**。仓库根目录应直接看到 `index.html`、`assets`、`images`、`fonts`；不要上传 ZIP，也不要多套一层文件夹。
-3. 打开 **Settings → Pages**。Source 选 **Deploy from a branch**；Branch 选 **main**，目录选 **/(root)**，点击 **Save**。
-4. 等待部署完成，复制 Pages 页面显示的实际网址给客户。通常为 `https://你的用户名.github.io/ansen-preview/`。如果账户主页配置了自定义域名，以 Pages 显示的地址为准。
+For https://anseninnov.com/ · 23 September 2026
 
-## 版本说明
-- 六个顶层页面、四个服务详情页和可点击的网站地图。
-- 保留当前设计、首页雕塑位置及背景融合调整、10 个真实作品截图、外部链接及手机导航。
-- HTML、CSS、JavaScript 和本地图片/字体，无需 npm、服务器或数据库。
-- Contact 是演示表单：不会发送或保存询问。正式上线需另接表单服务。
-- 这是可公开访问的客户预览，不是密码保护网站。各页保留标题与描述，设为 noindex，避免与正式站争夺搜索结果；noindex 不是访问控制。
-- 未写死预览域名；正式上线时再配置 canonical、结构化数据及 XML sitemap。当前 Sitemap 为可点击的 HTML 页面。
-- 字体授权见 `fonts/OFL.txt`。预览包不含服务器代码、密钥或数据库。
+Static HTML, CSS and JavaScript. No build step is needed.
 
-GitHub 官方说明：https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
+## Deploy
 
-当前导航为 Home、Services、Showcase、AI for Care、About，以及持续显示的 Let’s Talk。AI for Care 保留 collaboration.html 网址。
+1. Back up the current website on Vultr.
+2. Upload the HTML pages, `assets/`, `images/`, `fonts/`, `favicon.png`, `robots.txt` and `sitemap.xml` to the website root. Keep `index.html` directly in that folder.
+3. For Apache, merge `.htaccess` into the existing configuration. For Nginx, use `deployment/nginx.conf.example` as a reference. Configure HTTP and www redirects to `https://anseninnov.com/`.
+4. Check the pages, mobile navigation, old URL redirects and 404 responses. Confirm that `robots.txt` and `sitemap.xml` are served correctly and that the server has no `noindex` response header.
+5. Submit `https://anseninnov.com/sitemap.xml` in Google Search Console.
+
+Keep this README and `deployment/` out of the public web root. The supplied server rules also restrict access to them.
+
+## Contact form
+
+Emmeet will connect the AWS email service. The frontend is included; sending remains disabled until the backend is ready. Before switching over the contact page, follow `deployment/CONTACT_HANDOFF.md` and test receipt at the company email address.
+
+## SEO
+
+Included: unique page titles and descriptions, canonical URLs, sharing metadata, structured data, `robots.txt`, HTML sitemap and an XML sitemap with 11 canonical URLs. Redirect rules cover merged pages.
+
+All SEO URLs use `https://anseninnov.com/`. Server responses and search indexing must be checked after deployment.
