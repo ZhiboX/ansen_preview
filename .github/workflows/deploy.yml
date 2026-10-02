@@ -1,0 +1,48 @@
+name: Deploy website to Vigena
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ansen-preview-production
+  cancel-in-progress: false
+
+jobs:
+  deploy:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      DEPLOY_HOST: '139.180.179.61'
+      DEPLOY_PORT: '22'
+      DEPLOY_USER: root
+    steps:
+      - name: Configure deployment SSH identity
+        env:
+          DEPLOY_SSH_KEY: ${{ secrets.VIGENA_DEPLOY_SSH_KEY }}
+          DEPLOY_KNOWN_HOSTS: ${{ secrets.VIGENA_DEPLOY_KNOWN_HOSTS }}
+        run: |
+          test -n "$DEPLOY_SSH_KEY"
+          test -n "$DEPLOY_KNOWN_HOSTS"
+          install -d -m 700 "$HOME/.ssh"
+          printf '%s\n' "$DEPLOY_SSH_KEY" > "$HOME/.ssh/vigena_deploy"
+          printf '%s\n' "$DEPLOY_KNOWN_HOSTS" > "$HOME/.ssh/vigena_known_hosts"
+          chmod 600 "$HOME/.ssh/vigena_deploy" "$HOME/.ssh/vigena_known_hosts"
+
+      - name: Deploy the main commit and verify the served homepage
+        env:
+          DEPLOY_REVISION: ${{ github.sha }}
+        run: |
+          ssh -i "$HOME/.ssh/vigena_deploy" \
+            -p "$DEPLOY_PORT" \
+            -o BatchMode=yes \
+            -o IdentitiesOnly=yes \
+            -o StrictHostKeyChecking=yes \
+            -o UserKnownHostsFile="$HOME/.ssh/vigena_known_hosts" \
+            -o ConnectTimeout=15 \
+            "$DEPLOY_USER@$DEPLOY_HOST" "deploy $DEPLOY_REVISION"
